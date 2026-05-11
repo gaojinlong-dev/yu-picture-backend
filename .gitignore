@@ -1,6 +1,8 @@
 
 ### Custom ###
- application-local.yml
+application-local.yml
+# .gitignore 文件内容
+target/
 
 HELP.md
 target/
