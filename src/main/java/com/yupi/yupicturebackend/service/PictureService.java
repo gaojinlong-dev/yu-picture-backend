@@ -1,0 +1,40 @@
+package com.yupi.yupicturebackend.service;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.yupi.yupicturebackend.common.UserQueryRequest;
+import com.yupi.yupicturebackend.model.dto.picture.PictureQueryRequest;
+import com.yupi.yupicturebackend.model.dto.picture.PictureUploadRequest;
+import com.yupi.yupicturebackend.model.entity.Picture;
+import com.yupi.yupicturebackend.model.entity.User;
+import com.yupi.yupicturebackend.model.vo.PictureVO;
+import org.springframework.web.multipart.MultipartFile;
+
+/**
+ * @author 高金龙
+ * @description 针对表【picture(图片)】的数据库操作Service
+ * @createDate 2026-04-21 21:57:26
+ */
+public interface PictureService extends IService<Picture> {
+
+    /**
+     * 上传图片
+     *
+     * @param multipartFile  文件
+     * @param pictureUploadRequest 上传参数
+     * @param loginUser 登录用户
+     * @return
+     */
+    PictureVO uploadPicture(MultipartFile multipartFile, PictureUploadRequest pictureUploadRequest, User loginUser);
+
+    /**
+     * 请求查询
+     *
+     * @param pictureQueryRequest
+     * @return
+     */
+     QueryWrapper<Picture> getQueryWrapper(PictureQueryRequest pictureQueryRequest);
+
+
+
+}
