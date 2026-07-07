@@ -9,6 +9,7 @@ import com.yupi.yupicturebackend.model.dto.picture.PictureReviewRequest;
 import com.yupi.yupicturebackend.model.dto.picture.PictureUploadRequest;
 import com.yupi.yupicturebackend.model.entity.Picture;
 import com.yupi.yupicturebackend.model.entity.User;
+import com.yupi.yupicturebackend.model.picture.PictureUploadByBatchRequest;
 import com.yupi.yupicturebackend.model.vo.PictureVO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,12 +25,12 @@ public interface PictureService extends IService<Picture> {
     /**
      * 上传图片
      *
-     * @param multipartFile  文件
+     * @param inputSource  输入源
      * @param pictureUploadRequest 上传参数
      * @param loginUser 登录用户
      * @return
      */
-    PictureVO uploadPicture(MultipartFile multipartFile, PictureUploadRequest pictureUploadRequest, User loginUser);
+    PictureVO uploadPicture(Object inputSource , PictureUploadRequest pictureUploadRequest, User loginUser);
 
     /**
      * 请求查询
@@ -60,4 +61,17 @@ public interface PictureService extends IService<Picture> {
      * @param loginUser
      */
     void fillReviewParams(Picture picture, User loginUser);
+
+    /**
+     * 批量抓取和创建图片
+     *
+     * @param pictureUploadByBatchRequest
+     * @param loginUser
+     * @return 成功创建的图片数
+     */
+    Integer uploadPictureByBatch(
+            PictureUploadByBatchRequest pictureUploadByBatchRequest,
+            User loginUser
+    );
+
 }

@@ -30,8 +30,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ *  已废弃，改用使用FilePictureUploadTemplate类
+ */
 @Service
 @Slf4j
+@Deprecated // 弃用
 public class FileManager {
 
     @Resource
